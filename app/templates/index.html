@@ -34,7 +34,7 @@
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto gap-1">
                     <li class="nav-item"><a class="nav-link sp-navlink" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link sp-navlink" href="#work">Research</a></li>
+                    <li class="nav-item"><a class="nav-link sp-navlink" href="#work">Projects</a></li>
                     <li class="nav-item"><a class="nav-link sp-navlink" href="#education">Education</a></li>
                     <li class="nav-item"><a class="nav-link sp-navlink" href="#publications">Publications</a></li>
                     <li class="nav-item"><a class="nav-link sp-navlink" href="#skills">Skills</a></li>
@@ -57,7 +57,7 @@
         <div class="container">
             <h1 style="font-size:42px; font-weight:800; color:#111827; margin-bottom:8px;">Baker Hassani</h1>
             <p style="font-size:17px; color:#1C539F; font-weight:500; margin-bottom:20px;">Software Engineer &nbsp;&middot;&nbsp; Robotics &amp; Simulation</p>
-            <p style="font-size:16px; color:#374151; max-width:620px; margin:0 auto 28px; line-height:1.8;">I am a computer science junior at the University of Tulsa, minoring in Artificial Intelligence and Mathematics, and an undergraduate robotics researcher at the Institute for Robotics and Autonomy, where I focus on simulation, control, and autonomous systems.</p>
+            <p style="font-size:16px; color:#374151; max-width:620px; margin:0 auto 28px; line-height:1.8;">I am a computer science junior at the University of Tulsa, minoring in Artificial Intelligence and Mathematics, and an undergraduate robotics researcher at the Institute for Robotics and Autonomy, where I focus on simulation, control, and autonomous systems(this is a change to proof the automating redeploy-site.sh works)</p>
             <div class="profile-cta-row" style="justify-content:center;">
                 <a href="mailto:bah3944@utulsa.edu" class="profile-cta" style="background:#1C539F; border-color:#1C539F;">&#9993; Email</a>
                 <a href="https://github.com/bagherhasani" class="profile-cta" style="background:#111827; border-color:#111827;" target="_blank" rel="noopener">&#128187; GitHub</a>
@@ -178,13 +178,41 @@
         <div class="container">
             <h2 class="section-heading">Education</h2>
             <div class="edu-card-outer">
-                <div class="edu-card">
-                    <div class="edu-icon">&#127891;</div>
-                    <div class="edu-body">
-                        <h3 class="edu-school">University of Tulsa</h3>
-                        <p class="edu-degree">BS Computer Science &mdash; Minor in Artificial Intelligence &amp; Mathematics</p>
-                        <span class="edu-dates">2023 &ndash; Present</span>
-                        <p class="edu-desc">Majoring in Computer Science with minors in Artificial Intelligence and Mathematics, working as an undergraduate robotics researcher at the Institute for Robotics and Autonomy. Clubs: Software Engineering Club, AI Club. Coursework: Java, Data Structures, Algorithms, Assembly, Programming Languages, Physics II, Numerical Methods, Interaction Design, Cybersecurity.</p>
+                <div class="edu-card" style="padding:36px 36px;">
+                    <!-- Header row: logo + title -->
+                    <div style="display:flex; align-items:center; gap:24px; margin-bottom:24px;">
+                        <div style="flex-shrink:0; width:72px; height:72px; border-radius:16px; background:linear-gradient(135deg,#e8f0fb,#cdddf7); display:flex; align-items:center; justify-content:center; font-size:36px;">&#127891;</div>
+                        <div>
+                            <h3 class="edu-school" style="margin:0 0 4px;">University of Tulsa</h3>
+                            <p class="edu-degree" style="margin:0 0 8px;">BS Computer Science &mdash; Minor in AI &amp; Mathematics</p>
+                            <span class="edu-dates">2023 &ndash; Present</span>
+                        </div>
+                    </div>
+                    <!-- Divider -->
+                    <hr style="border:none; border-top:1px solid #e5eaf5; margin:0 0 22px;">
+                    <!-- Info grid -->
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px 32px; margin-bottom:22px;">
+                        <div>
+                            <p style="font-size:11px; font-weight:700; color:#1C539F; text-transform:uppercase; letter-spacing:0.8px; margin:0 0 6px;">Research Role</p>
+                            <p style="font-size:14px; color:#374151; margin:0; line-height:1.5;">Undergraduate Robotics Researcher, Institute for Robotics &amp; Autonomy — supervised by Dr. Joshua Schultz</p>
+                        </div>
+                        <div>
+                            <p style="font-size:11px; font-weight:700; color:#1C539F; text-transform:uppercase; letter-spacing:0.8px; margin:0 0 6px;">Clubs</p>
+                            <p style="font-size:14px; color:#374151; margin:0; line-height:1.5;">Software Engineering Club, Artificial Intelligence Club</p>
+                        </div>
+                    </div>
+                    <!-- Coursework chips -->
+                    <p style="font-size:11px; font-weight:700; color:#1C539F; text-transform:uppercase; letter-spacing:0.8px; margin:0 0 10px;">Relevant Coursework</p>
+                    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Java Programming</span>
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Data Structures</span>
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Algorithms</span>
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Assembly Language</span>
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Programming Languages</span>
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Physics II</span>
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Numerical Methods</span>
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Interaction Design</span>
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Cybersecurity</span>
                     </div>
                 </div>
                 <div class="edu-hover-overlay">
@@ -199,22 +227,49 @@
         <div class="container">
             <h2 class="section-heading">Publications</h2>
             <div class="row g-4">
+
+                <!-- Publication 1 -->
                 <div class="col-md-6">
-                    <div class="pub-card">
-                        <div class="pub-card-venue">IMECE 2024</div>
-                        <h3 class="pub-card-title">Your Robot Is a Caveman: Using Robots for Archaeological Stone Tool Research</h3>
-                        <p class="pub-card-authors">Asma Mohseni, Baqer Hassani, Juan Ramoso Carbonell &amp; Dr. Joshua Schultz</p>
-                        <span class="pub-badge pub-badge--published">Published</span>
+                    <div class="pub-card" style="border-top:4px solid #1C539F; border-radius:16px; padding:28px; background:#fff; height:100%; display:flex; flex-direction:column; box-shadow:0 4px 18px rgba(28,83,159,0.10);">
+                        <!-- Top row: venue badge + status -->
+                        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+                            <span style="background:#1C539F; color:#fff; font-size:11px; font-weight:700; padding:4px 14px; border-radius:20px; letter-spacing:1px; text-transform:uppercase;">IMECE 2024</span>
+                            <span style="background:#d1fae5; color:#065f46; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px;">&#10003; Published</span>
+                        </div>
+                        <!-- Title -->
+                        <h3 style="font-size:17px; font-weight:700; color:#111827; line-height:1.45; margin:0 0 12px; flex:1;">Your Robot Is a Caveman: Using Robots for Archaeological Stone Tool Research</h3>
+                        <!-- Authors -->
+                        <p style="font-size:13px; color:#6b7280; margin:0 0 16px; line-height:1.55;">Asma Mohseni, Baker Hassani, Juan Ramoso Carbonell &amp; Dr. Joshua Schultz</p>
+                        <!-- Footer row: conference + field -->
+                        <div style="display:flex; flex-wrap:wrap; gap:8px; padding-top:14px; border-top:1px solid #eef0f5;">
+                            <span style="background:#eef3fb; color:#1C539F; font-size:11px; font-weight:600; padding:3px 10px; border-radius:12px;">Mechanical Engineering</span>
+                            <span style="background:#eef3fb; color:#1C539F; font-size:11px; font-weight:600; padding:3px 10px; border-radius:12px;">Robotics &amp; Archaeology</span>
+                            <span style="background:#eef3fb; color:#1C539F; font-size:11px; font-weight:600; padding:3px 10px; border-radius:12px;">University of Tulsa</span>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Publication 2 -->
                 <div class="col-md-6">
-                    <div class="pub-card">
-                        <div class="pub-card-venue">ICRA 2026</div>
-                        <h3 class="pub-card-title">Preventing Tipping in Mobile Manipulators Using Zero Moment Point Analysis</h3>
-                        <p class="pub-card-authors">Baker Hassani &amp; Dr. Joshua Schultz</p>
-                        <span class="pub-badge pub-badge--review">Under Committee Review</span>
+                    <div class="pub-card" style="border-top:4px solid #f59e0b; border-radius:16px; padding:28px; background:#fff; height:100%; display:flex; flex-direction:column; box-shadow:0 4px 18px rgba(28,83,159,0.10);">
+                        <!-- Top row: venue badge + status -->
+                        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+                            <span style="background:#0d3875; color:#fff; font-size:11px; font-weight:700; padding:4px 14px; border-radius:20px; letter-spacing:1px; text-transform:uppercase;">ICRA 2026</span>
+                            <span style="background:#fef3c7; color:#92400e; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px;">&#9203; Under Review</span>
+                        </div>
+                        <!-- Title -->
+                        <h3 style="font-size:17px; font-weight:700; color:#111827; line-height:1.45; margin:0 0 12px; flex:1;">Preventing Tipping in Mobile Manipulators Using Zero Moment Point Analysis</h3>
+                        <!-- Authors -->
+                        <p style="font-size:13px; color:#6b7280; margin:0 0 16px; line-height:1.55;">Baker Hassani &amp; Dr. Joshua Schultz</p>
+                        <!-- Footer row: tags -->
+                        <div style="display:flex; flex-wrap:wrap; gap:8px; padding-top:14px; border-top:1px solid #eef0f5;">
+                            <span style="background:#fff8e1; color:#92400e; font-size:11px; font-weight:600; padding:3px 10px; border-radius:12px;">Mobile Manipulation</span>
+                            <span style="background:#fff8e1; color:#92400e; font-size:11px; font-weight:600; padding:3px 10px; border-radius:12px;">ZMP Analysis</span>
+                            <span style="background:#fff8e1; color:#92400e; font-size:11px; font-weight:600; padding:3px 10px; border-radius:12px;">IEEE ICRA</span>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>

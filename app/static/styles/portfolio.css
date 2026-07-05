@@ -313,6 +313,25 @@ html { scroll-behavior: smooth; }
     .hb-grid-wrap { padding: 0 8px; }
 }
 
+/* EDUCATION enhanced */
+.edu-card-outer { box-shadow: 0 8px 32px rgba(28,83,159,0.14); }
+.edu-school { font-size: 22px; }
+.edu-icon { font-size: 32px; width: 64px; height: 64px; }
+
+/* PUBLICATIONS enhanced */
+.pub-card {
+    border-top: 4px solid #1C539F;
+}
+.pub-card-venue {
+    background: #e8f0fb;
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+}
+.pub-card-title { font-size: 17px; }
+
 /* PARALLAX HERO */
 #about .profile {
     background:
