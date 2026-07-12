@@ -115,7 +115,7 @@ HOBBIES = [
 
 @app.route('/')
 def index():
-    return render_template('index.html', title="MLH Fellow", url=os.getenv("URL"))
+    return render_template('index.html', title="Baker Hassani", url=os.getenv("URL"))
 
 
 @app.route('/work-experience')

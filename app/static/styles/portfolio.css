@@ -1,0 +1,365 @@
+/* =====================================================
+   Single-Page Portfolio — Custom Styles
+   Bootstrap 5 overrides and section-specific styles
+   ===================================================== */
+
+html { scroll-behavior: smooth; }
+
+/* NAVBAR */
+.sp-nav {
+    background: linear-gradient(90deg, #0c2f6b 0%, #1C539F 55%, #1e5fba 100%);
+    box-shadow: 0 2px 20px rgba(12, 47, 107, 0.35);
+    min-height: 64px;
+}
+
+.sp-brand {
+    font-weight: 800;
+    font-size: 20px;
+    color: #ffffff !important;
+    letter-spacing: 1px;
+}
+
+.sp-navlink {
+    color: rgba(255, 255, 255, 0.82) !important;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 7px 13px !important;
+    border-radius: 8px;
+    transition: background 0.18s, color 0.18s;
+}
+
+.sp-navlink:hover,
+.sp-navlink.active {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #fff !important;
+}
+
+.sp-nav .navbar-toggler { border-color: rgba(255, 255, 255, 0.4); }
+.sp-nav .navbar-toggler-icon { filter: invert(1); }
+
+/* HERO BIO */
+.profile-bio {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 580px;
+    margin: 0 auto 28px;
+    line-height: 1.78;
+    position: relative;
+    z-index: 1;
+}
+
+/* SECTION WRAPPER */
+.sp-section { padding: 72px 0 80px; }
+.sp-section--alt { background-color: #eef3fb; }
+
+/* PROJECT CARDS */
+.proj-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(28, 83, 159, 0.10);
+    border: 1px solid rgba(28, 83, 159, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.proj-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(28, 83, 159, 0.20);
+}
+
+.proj-card-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.proj-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.proj-card:hover .proj-card-img-wrap img { transform: scale(1.05); }
+
+.proj-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(9, 31, 74, 0.62);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.proj-card:hover .proj-card-overlay { opacity: 1; }
+
+.proj-card-view-btn {
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    padding: 8px 22px;
+    border-radius: 30px;
+    letter-spacing: 0.3px;
+}
+
+.proj-card-body {
+    padding: 20px 22px 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.proj-card-title {
+    font-size: 16.5px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 8px;
+    line-height: 1.35;
+}
+
+.proj-card-desc {
+    font-size: 13.5px;
+    color: #4b5563;
+    line-height: 1.65;
+    margin: 0 0 14px;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.proj-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+
+.proj-tag {
+    background-color: #1C539F;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+/* EDUCATION */
+.edu-card-outer {
+    position: relative;
+    max-width: 860px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(28, 83, 159, 0.10);
+    border: 1px solid rgba(28, 83, 159, 0.08);
+    cursor: pointer;
+}
+
+.edu-card-outer .edu-card {
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    transition: none;
+}
+
+.edu-hover-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(9, 31, 74, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.edu-card-outer:hover .edu-hover-overlay {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.edu-view-btn {
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    padding: 10px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+}
+
+.edu-view-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+}
+
+/* PUBLICATIONS */
+.pub-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 26px 28px;
+    box-shadow: 0 4px 18px rgba(28, 83, 159, 0.10);
+    border: 1px solid rgba(28, 83, 159, 0.08);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.pub-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(28, 83, 159, 0.16);
+}
+
+.pub-card-venue {
+    font-size: 11px;
+    font-weight: 700;
+    color: #1C539F;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 10px;
+}
+
+.pub-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 10px;
+    line-height: 1.4;
+    flex: 1;
+}
+
+.pub-card-authors {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0 0 16px;
+    line-height: 1.55;
+}
+
+.pub-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    align-self: flex-start;
+}
+
+.pub-badge--published { background: #d1fae5; color: #065f46; }
+.pub-badge--review { background: #fef3c7; color: #92400e; }
+
+/* SKILLS */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    max-width: 860px;
+}
+
+.skill-chip {
+    background: #fff;
+    border: 1.5px solid #c7d8f4;
+    color: #1C539F;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 9px 20px;
+    border-radius: 30px;
+    box-shadow: 0 2px 8px rgba(28, 83, 159, 0.08);
+    transition: background 0.18s, color 0.18s, transform 0.18s, box-shadow 0.18s;
+    cursor: default;
+    user-select: none;
+}
+
+.skill-chip:hover {
+    background: #1C539F;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(28, 83, 159, 0.22);
+}
+
+/* HOBBIES */
+.hb-intro-text {
+    font-size: 16px;
+    color: #4b5563;
+    margin: 0 auto 32px;
+    max-width: 580px;
+    text-align: center;
+}
+
+.hb-grid-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* MAP */
+.sp-map-wrap {
+    max-width: 1100px;
+    margin: 32px auto 0;
+    padding: 0 24px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .sp-section { padding: 52px 0 60px; }
+    .profile-bio { font-size: 15px; }
+    .hb-grid-wrap { padding: 0 8px; }
+}
+
+/* EDUCATION enhanced */
+.edu-card-outer { box-shadow: 0 8px 32px rgba(28,83,159,0.14); }
+.edu-school { font-size: 22px; }
+.edu-icon { font-size: 32px; width: 64px; height: 64px; }
+
+/* PUBLICATIONS enhanced */
+.pub-card {
+    border-top: 4px solid #1C539F;
+}
+.pub-card-venue {
+    background: #e8f0fb;
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+}
+.pub-card-title { font-size: 17px; }
+
+/* PARALLAX HERO */
+#about .profile {
+    background:
+        linear-gradient(rgba(9, 31, 74, 0.58), rgba(9, 31, 74, 0.58)),
+        url('/static/img/baqprofile.jpeg') center top / cover no-repeat fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 80px;
+}
+
+#about .profile {
+    background:
+        linear-gradient(rgba(9, 31, 74, 0.25), rgba(9, 31, 74, 0.25)),
+        url('/static/img/baqprofile.jpeg') center center / auto 100% no-repeat fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+    #about .profile {
+        background-attachment: scroll;
+        min-height: 80vh;
+    }
+}

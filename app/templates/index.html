@@ -2,95 +2,380 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta property="og:title" content="Personal Portfolio">
-    <meta property="og:description" content="My Personal Portfolio">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Baqer Hassani">
+    <meta property="og:description" content="Software Engineer · Robotics & Simulation">
     <meta property="og:url" content="{{ url }}">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link lang="sass" rel="stylesheet" href="./static/styles/main.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/education.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/hobbies.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/travel-map.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/portfolio.css') }}">
 
-    <link rel="icon" href="./static/img/favicon.ico" type="image/x-icon" />
-    <title>{{ title }}</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <title>Baker Hassani</title>
 </head>
 
 <body>
-    {% include "nav.html" %}
 
-    <div class="profile">
-        <div id="profile-picture" class="profile-picture blank"></div>
-        <h1>{{ title }}</h1>
-        <p class="profile-subtitle">Software Engineer &nbsp;·&nbsp; MLH Fellow</p>
-        <div class="profile-cta-row">
-            <a href="/work-experience" class="profile-cta">💼 Work</a>
-            <a href="/education" class="profile-cta">🎓 Education</a>
-            <a href="/hobbies" class="profile-cta">🎨 Hobbies</a>
-            <a href="/map" class="profile-cta">🗺️ Places</a>
-        </div>
-    </div>
-
-    <main class="content">
-        <section class="about-section">
-            <h2 class="section-heading">About Me</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.</p>
-        </section>
-
-        <section class="explore-section">
-            <h2 class="section-heading">Explore</h2>
-            <div class="page-cards-grid">
-                <a href="/work-experience" class="page-card">
-                    <div class="page-card-icon">💼</div>
-                    <div class="page-card-text">
-                        <h3>Work Experience</h3>
-                        <p>Internships, roles, and projects I've shipped professionally.</p>
-                    </div>
-                </a>
-                <a href="/education" class="page-card">
-                    <div class="page-card-icon">🎓</div>
-                    <div class="page-card-text">
-                        <h3>Education</h3>
-                        <p>Schools, degrees, and the academic journey behind the skills.</p>
-                    </div>
-                </a>
-                <a href="/hobbies" class="page-card">
-                    <div class="page-card-icon">🎨</div>
-                    <div class="page-card-text">
-                        <h3>Hobbies</h3>
-                        <p>What I love doing when I'm not writing code.</p>
-                    </div>
-                </a>
-                <a href="/map" class="page-card">
-                    <div class="page-card-icon">🗺️</div>
-                    <div class="page-card-text">
-                        <h3>Favorite Places</h3>
-                        <p>A map of spots around the world that mean something to me.</p>
-                    </div>
-                </a>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top sp-nav">
+        <div class="container">
+            <a class="navbar-brand sp-brand" href="#about">BH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto gap-1">
+                    <li class="nav-item"><a class="nav-link sp-navlink" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link sp-navlink" href="#work">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link sp-navlink" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link sp-navlink" href="#publications">Publications</a></li>
+                    <li class="nav-item"><a class="nav-link sp-navlink" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link sp-navlink" href="#hobbies">Hobbies</a></li>
+                    <li class="nav-item"><a class="nav-link sp-navlink" href="#map">Map</a></li>
+                </ul>
             </div>
-        </section>
-    </main>
+        </div>
+    </nav>
 
+       <!-- ABOUT -->
+    <section id="about">
+        <div class="profile">
+            <!-- full-screen photo background only -->
+        </div>
+    </section>
+
+    <!-- ABOUT TEXT -->
+    <section id="about-text" class="sp-section" style="text-align:center;">
+        <div class="container">
+            <h1 style="font-size:42px; font-weight:800; color:#111827; margin-bottom:8px;">Baker Hassani</h1>
+            <p style="font-size:17px; color:#1C539F; font-weight:500; margin-bottom:20px;">Software Engineer &nbsp;&middot;&nbsp; Robotics &amp; Simulation</p>
+            <p style="font-size:16px; color:#374151; max-width:620px; margin:0 auto 28px; line-height:1.8;">I am a computer science junior at the University of Tulsa, minoring in Artificial Intelligence and Mathematics, and an undergraduate robotics researcher at the Institute for Robotics and Autonomy, where I focus on simulation, control, and autonomous systems(this is a change to proof the automating redeploy-site.sh works)</p>
+            <div class="profile-cta-row" style="justify-content:center;">
+                <a href="mailto:bah3944@utulsa.edu" class="profile-cta" style="background:#1C539F; border-color:#1C539F;">&#9993; Email</a>
+                <a href="https://github.com/bagherhasani" class="profile-cta" style="background:#111827; border-color:#111827;" target="_blank" rel="noopener">&#128187; GitHub</a>
+                <a href="#work" class="profile-cta" style="background:#0d3875; border-color:#0d3875;">&#128300; Research</a>
+                <a href="#education" class="profile-cta" style="background:#0d3875; border-color:#0d3875;">&#127891; Education</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESEARCH & WORK -->
+    <section id="work" class="sp-section">
+        <div class="container">
+            <h2 class="section-heading">Selected Technical Work</h2>
+            <div class="row g-4">
+
+                <div class="col-md-6">
+                    <div class="proj-card">
+                        <div class="proj-card-img-wrap">
+                            <img src="/static/img/work5.png" alt="Person Re-ID">
+                            <div class="proj-card-overlay"><span class="proj-card-view-btn">View Project &#8594;</span></div>
+                        </div>
+                        <div class="proj-card-body">
+                            <h3 class="proj-card-title">Person Re-Identification Robot with ZED Depth &amp; OSNet</h3>
+                            <p class="proj-card-desc">Tracer mobile robot with a ZED depth camera and OSNet model that identifies and follows a specific person, even after losing track across occlusions and viewpoints.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">ROS2</span><span class="proj-tag">ZED SDK</span><span class="proj-tag">PyTorch</span><span class="proj-tag">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="proj-card">
+                        <div class="proj-card-img-wrap">
+                            <img src="/static/img/work4.png" alt="LiDAR Mapping">
+                            <div class="proj-card-overlay"><span class="proj-card-view-btn">View Project &#8594;</span></div>
+                        </div>
+                        <div class="proj-card-body">
+                            <h3 class="proj-card-title">Tracer AgileX LiDAR Mapping with Ouster and ROS2</h3>
+                            <p class="proj-card-desc">AgileX Tracer robot with Ouster LiDAR building 2D and 3D maps of indoor environments and reasoning about obstacles in real time using ROS2 and Nav2.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">ROS2</span><span class="proj-tag">Ouster SDK</span><span class="proj-tag">SLAM</span><span class="proj-tag">Nav2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="proj-card">
+                        <div class="proj-card-img-wrap">
+                            <img src="/static/img/work3.png " alt="Stone Tool Robot">
+                            <div class="proj-card-overlay"><span class="proj-card-view-btn">View Project &#8594;</span></div>
+                        </div>
+                        <div class="proj-card-body">
+                            <h3 class="proj-card-title">Robotic Replication of Ancient Stone Tool Use</h3>
+                            <p class="proj-card-desc">7-axis Barrett robotic arm with force sensing replicating prehistoric scraping and cutting motions with experimental stone tools. Published IMECE 2024.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">Barrett WAM</span><span class="proj-tag">C++</span><span class="proj-tag">Force Control</span><span class="proj-tag">IMECE 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="proj-card">
+                        <div class="proj-card-img-wrap">
+                            <img src="/static/img/work2.png" alt="ZMP Tipping">
+                            <div class="proj-card-overlay"><span class="proj-card-view-btn">View Project &#8594;</span></div>
+                        </div>
+                        <div class="proj-card-body">
+                            <h3 class="proj-card-title">Preventing Tipping in Mobile Manipulators with ZMP Analysis</h3>
+                            <p class="proj-card-desc">UR5e cobot on AgileX Tracer and Clearpath Ridgeback studying stability via Zero Moment Point analysis to prevent tip-overs. Accepted ICRA 2026.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">ZMP</span><span class="proj-tag">UR5e</span><span class="proj-tag">ROS2</span><span class="proj-tag">ICRA 2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="proj-card">
+                        <div class="proj-card-img-wrap">
+                            <img src="https://picsum.photos/seed/swarmrobot/600/380" alt="Swarm Robots">
+                            <div class="proj-card-overlay"><span class="proj-card-view-btn">View Project &#8594;</span></div>
+                        </div>
+                        <div class="proj-card-body">
+                            <h3 class="proj-card-title">Leader&ndash;Follower Swarm of Tracer Robots in PyBullet</h3>
+                            <p class="proj-card-desc">Simulated swarm of AgileX Tracer robots in PyBullet implementing leader-follower formation control with real-time obstacle avoidance and state broadcasting.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">PyBullet</span><span class="proj-tag">Python</span><span class="proj-tag">Swarm Robotics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="proj-card">
+                        <div class="proj-card-img-wrap">
+                            <img src="https://picsum.photos/seed/autonomousnav/600/380" alt="Autonomous Navigation">
+                            <div class="proj-card-overlay"><span class="proj-card-view-btn">View Project &#8594;</span></div>
+                        </div>
+                        <div class="proj-card-body">
+                            <h3 class="proj-card-title">Autonomous Indoor Navigation with SLAM &amp; ROS2</h3>
+                            <p class="proj-card-desc">Full autonomy stack on a mobile robot using ROS2 Nav2, GMapping SLAM, and custom costmaps for navigating dynamic indoor environments without prior maps.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">ROS2 Nav2</span><span class="proj-tag">SLAM</span><span class="proj-tag">Gazebo</span><span class="proj-tag">C++</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="sp-section sp-section--alt">
+        <div class="container">
+            <h2 class="section-heading">Education</h2>
+            <div class="edu-card-outer">
+                <div class="edu-card" style="padding:36px 36px;">
+                    <!-- Header row: logo + title -->
+                    <div style="display:flex; align-items:center; gap:24px; margin-bottom:24px;">
+                        <div style="flex-shrink:0; width:72px; height:72px; border-radius:16px; background:linear-gradient(135deg,#e8f0fb,#cdddf7); display:flex; align-items:center; justify-content:center; font-size:36px;">&#127891;</div>
+                        <div>
+                            <h3 class="edu-school" style="margin:0 0 4px;">University of Tulsa</h3>
+                            <p class="edu-degree" style="margin:0 0 8px;">BS Computer Science &mdash; Minor in AI &amp; Mathematics</p>
+                            <span class="edu-dates">2023 &ndash; Present</span>
+                        </div>
+                    </div>
+                    <!-- Divider -->
+                    <hr style="border:none; border-top:1px solid #e5eaf5; margin:0 0 22px;">
+                    <!-- Info grid -->
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px 32px; margin-bottom:22px;">
+                        <div>
+                            <p style="font-size:11px; font-weight:700; color:#1C539F; text-transform:uppercase; letter-spacing:0.8px; margin:0 0 6px;">Research Role</p>
+                            <p style="font-size:14px; color:#374151; margin:0; line-height:1.5;">Undergraduate Robotics Researcher, Institute for Robotics &amp; Autonomy — supervised by Dr. Joshua Schultz</p>
+                        </div>
+                        <div>
+                            <p style="font-size:11px; font-weight:700; color:#1C539F; text-transform:uppercase; letter-spacing:0.8px; margin:0 0 6px;">Clubs</p>
+                            <p style="font-size:14px; color:#374151; margin:0; line-height:1.5;">Software Engineering Club, Artificial Intelligence Club</p>
+                        </div>
+                    </div>
+                    <!-- Coursework chips -->
+                    <p style="font-size:11px; font-weight:700; color:#1C539F; text-transform:uppercase; letter-spacing:0.8px; margin:0 0 10px;">Relevant Coursework</p>
+                    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Java Programming</span>
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Data Structures</span>
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Algorithms</span>
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Assembly Language</span>
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Programming Languages</span>
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Physics II</span>
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Numerical Methods</span>
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Interaction Design</span>
+                        <span style="background:#e8f0fb; color:#1C539F; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">Cybersecurity</span>
+                    </div>
+                </div>
+                <div class="edu-hover-overlay">
+                    <a href="/education" class="edu-view-btn">View Details &#8594;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="sp-section">
+        <div class="container">
+            <h2 class="section-heading">Publications</h2>
+            <div class="row g-4">
+
+                <!-- Publication 1 -->
+                <div class="col-md-6">
+                    <div class="pub-card" style="border-top:4px solid #1C539F; border-radius:16px; padding:28px; background:#fff; height:100%; display:flex; flex-direction:column; box-shadow:0 4px 18px rgba(28,83,159,0.10);">
+                        <!-- Top row: venue badge + status -->
+                        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+                            <span style="background:#1C539F; color:#fff; font-size:11px; font-weight:700; padding:4px 14px; border-radius:20px; letter-spacing:1px; text-transform:uppercase;">IMECE 2024</span>
+                            <span style="background:#d1fae5; color:#065f46; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px;">&#10003; Published</span>
+                        </div>
+                        <!-- Title -->
+                        <h3 style="font-size:17px; font-weight:700; color:#111827; line-height:1.45; margin:0 0 12px; flex:1;">Your Robot Is a Caveman: Using Robots for Archaeological Stone Tool Research</h3>
+                        <!-- Authors -->
+                        <p style="font-size:13px; color:#6b7280; margin:0 0 16px; line-height:1.55;">Asma Mohseni, Baker Hassani, Juan Ramoso Carbonell &amp; Dr. Joshua Schultz</p>
+                        <!-- Footer row: conference + field -->
+                        <div style="display:flex; flex-wrap:wrap; gap:8px; padding-top:14px; border-top:1px solid #eef0f5;">
+                            <span style="background:#eef3fb; color:#1C539F; font-size:11px; font-weight:600; padding:3px 10px; border-radius:12px;">Mechanical Engineering</span>
+                            <span style="background:#eef3fb; color:#1C539F; font-size:11px; font-weight:600; padding:3px 10px; border-radius:12px;">Robotics &amp; Archaeology</span>
+                            <span style="background:#eef3fb; color:#1C539F; font-size:11px; font-weight:600; padding:3px 10px; border-radius:12px;">University of Tulsa</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Publication 2 -->
+                <div class="col-md-6">
+                    <div class="pub-card" style="border-top:4px solid #f59e0b; border-radius:16px; padding:28px; background:#fff; height:100%; display:flex; flex-direction:column; box-shadow:0 4px 18px rgba(28,83,159,0.10);">
+                        <!-- Top row: venue badge + status -->
+                        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+                            <span style="background:#0d3875; color:#fff; font-size:11px; font-weight:700; padding:4px 14px; border-radius:20px; letter-spacing:1px; text-transform:uppercase;">ICRA 2026</span>
+                            <span style="background:#fef3c7; color:#92400e; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px;">&#9203; Under Review</span>
+                        </div>
+                        <!-- Title -->
+                        <h3 style="font-size:17px; font-weight:700; color:#111827; line-height:1.45; margin:0 0 12px; flex:1;">Preventing Tipping in Mobile Manipulators Using Zero Moment Point Analysis</h3>
+                        <!-- Authors -->
+                        <p style="font-size:13px; color:#6b7280; margin:0 0 16px; line-height:1.55;">Baker Hassani &amp; Dr. Joshua Schultz</p>
+                        <!-- Footer row: tags -->
+                        <div style="display:flex; flex-wrap:wrap; gap:8px; padding-top:14px; border-top:1px solid #eef0f5;">
+                            <span style="background:#fff8e1; color:#92400e; font-size:11px; font-weight:600; padding:3px 10px; border-radius:12px;">Mobile Manipulation</span>
+                            <span style="background:#fff8e1; color:#92400e; font-size:11px; font-weight:600; padding:3px 10px; border-radius:12px;">ZMP Analysis</span>
+                            <span style="background:#fff8e1; color:#92400e; font-size:11px; font-weight:600; padding:3px 10px; border-radius:12px;">IEEE ICRA</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="sp-section sp-section--alt">
+        <div class="container">
+            <h2 class="section-heading">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-chip">C++</div>
+                <div class="skill-chip">Python</div>
+                <div class="skill-chip">Java</div>
+                <div class="skill-chip">ROS / ROS2</div>
+                <div class="skill-chip">Gazebo / RViz</div>
+                <div class="skill-chip">PyBullet</div>
+                <div class="skill-chip">LiDAR / SLAM</div>
+                <div class="skill-chip">OpenCV</div>
+                <div class="skill-chip">Git / GitHub</div>
+                <div class="skill-chip">Linux / Bash</div>
+                <div class="skill-chip">ZED SDK</div>
+                <div class="skill-chip">Ouster SDK</div>
+                <div class="skill-chip">PyTorch</div>
+                <div class="skill-chip">NumPy</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOBBIES -->
+    <section id="hobbies" class="sp-section">
+        <div class="container">
+            <h2 class="section-heading">Hobbies &amp; Interests</h2>
+            <p class="hb-intro-text">Beyond the screen, I spend my time doing things that keep me curious and energized.</p>
+        </div>
+        <div class="hb-grid-wrap">
+            <div class="hb-grid">
+                <div class="hb-card hb-card--featured">
+                    <div class="hb-card-img-wrap">
+                        <img src="https://picsum.photos/seed/photography/800/500" alt="Photography" class="hb-card-img">
+                        <div class="hb-card-overlay"><p class="hb-card-desc">I love capturing moments — from street photography in the city to landscapes on hiking trails.</p></div>
+                    </div>
+                    <div class="hb-card-footer"><span class="hb-category">Creative</span><h2 class="hb-card-title">Photography</h2></div>
+                </div>
+                <div class="hb-card">
+                    <div class="hb-card-img-wrap">
+                        <img src="https://picsum.photos/seed/hiking/600/400" alt="Hiking" class="hb-card-img">
+                        <div class="hb-card-overlay"><p class="hb-card-desc">Trail running and hiking are my go-to for clearing my head.</p></div>
+                    </div>
+                    <div class="hb-card-footer"><span class="hb-category">Outdoor</span><h2 class="hb-card-title">Hiking</h2></div>
+                </div>
+                <div class="hb-card">
+                    <div class="hb-card-img-wrap">
+                        <img src="https://picsum.photos/seed/cooking/600/400" alt="Cooking" class="hb-card-img">
+                        <div class="hb-card-overlay"><p class="hb-card-desc">Cooking is my creative outlet. I enjoy experimenting with new cuisines.</p></div>
+                    </div>
+                    <div class="hb-card-footer"><span class="hb-category">Food</span><h2 class="hb-card-title">Cooking</h2></div>
+                </div>
+                <div class="hb-card">
+                    <div class="hb-card-img-wrap">
+                        <img src="https://picsum.photos/seed/gaming2024/600/400" alt="Gaming" class="hb-card-img">
+                        <div class="hb-card-overlay"><p class="hb-card-desc">From indie games to competitive FPS titles, gaming is how I unwind.</p></div>
+                    </div>
+                    <div class="hb-card-footer"><span class="hb-category">Gaming</span><h2 class="hb-card-title">Gaming</h2></div>
+                </div>
+                <div class="hb-card">
+                    <div class="hb-card-img-wrap">
+                        <img src="https://picsum.photos/seed/music2024/600/400" alt="Music" class="hb-card-img">
+                        <div class="hb-card-overlay"><p class="hb-card-desc">I play guitar and enjoy discovering new artists. Music always plays when I code.</p></div>
+                    </div>
+                    <div class="hb-card-footer"><span class="hb-category">Music</span><h2 class="hb-card-title">Music</h2></div>
+                </div>
+                <div class="hb-card">
+                    <div class="hb-card-img-wrap">
+                        <img src="https://picsum.photos/seed/reading2024/600/400" alt="Reading" class="hb-card-img">
+                        <div class="hb-card-overlay"><p class="hb-card-desc">I read mostly non-fiction — tech, psychology, and history.</p></div>
+                    </div>
+                    <div class="hb-card-footer"><span class="hb-category">Learning</span><h2 class="hb-card-title">Reading</h2></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP -->
+    <section id="map" class="sp-section sp-section--alt">
+        <div class="container"><h2 class="section-heading">Favorite Places</h2></div>
+        <div class="sp-map-wrap">{% include "travel_map.html" %}</div>
+    </section>
+
+    <!-- FOOTER -->
     <footer class="pg-foot" style="text-align:center;">
         <p style="margin:0; color:rgba(255,255,255,0.55); font-size:13px;">
-            &copy; 2024 My Portfolio &mdash; Built with Flask
-            &nbsp;&nbsp;
-            <a href="/work-experience" style="color:rgba(255,255,255,0.75); text-decoration:none; margin:0 6px;">Work</a>
-            <a href="/education" style="color:rgba(255,255,255,0.75); text-decoration:none; margin:0 6px;">Education</a>
-            <a href="/hobbies" style="color:rgba(255,255,255,0.75); text-decoration:none; margin:0 6px;">Hobbies</a>
-            <a href="/map" style="color:rgba(255,255,255,0.75); text-decoration:none; margin:0 6px;">Map</a>
+            &copy; 2026 Baker Hassani &nbsp;&nbsp;
+            <a href="mailto:bah3944@utulsa.edu" style="color:rgba(255,255,255,0.75); text-decoration:none; margin:0 6px;">Email</a>
+            <a href="https://github.com/bagherhasani" style="color:rgba(255,255,255,0.75); text-decoration:none; margin:0 6px;" target="_blank" rel="noopener">GitHub</a>
         </p>
     </footer>
-</body>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        var secs = document.querySelectorAll('section[id]');
+        var lnks = document.querySelectorAll('.sp-navlink');
+        window.addEventListener('scroll', function () {
+            var c = '';
+            secs.forEach(function (s) { if (window.pageYOffset >= s.offsetTop - 80) c = s.id; });
+            lnks.forEach(function (l) { l.classList.toggle('active', l.getAttribute('href') === '#' + c); });
+        });
+    </script>
+
+</body>
 </html>
