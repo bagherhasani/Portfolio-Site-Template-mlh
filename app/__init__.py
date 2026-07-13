@@ -151,6 +151,10 @@ def index():
     return render_template('index.html', title="Baker Hassani", url=os.getenv("URL"))
 
 
+@app.route('/timeline')
+def timeline():
+    return render_template('timeline.html', title="Timeline — Baker Hassani")
+
 @app.route('/work-experience')
 def work_experience():
     return render_template('work_experience.html', entries=WORK_EXPERIENCE_ENTRIES)
