@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #kill the tmux sessions
-tmux kill-server 2>/dev/null
+#tmux kill-server 2>/dev/null
 
 #navigate to the portfolio site directory
 cd ~/Portfolio-Site-Template-mlh
