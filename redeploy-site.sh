@@ -20,3 +20,5 @@ pip install -r requirements.txt
 #systemd restart the service
 systemctl restart myportfolio.service
 
+# lets show if the restart was successful
+systemctl status myportfolio.service --no-pager
