@@ -11,7 +11,7 @@ from playhouse.shortcuts import model_to_dict
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(BASE_DIR / "example.env")
+load_dotenv(BASE_DIR / ".env")
 app = Flask(__name__)
 app.register_blueprint(education_bp)
 
