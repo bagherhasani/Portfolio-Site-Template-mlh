@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Timeline — Baker Hassani">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <title>Timeline — Baker Hassani</title>
+
+    <style>
+        body {
+            background: #f0f4fc;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* ---- PAGE HEADER ---- */
+        .tl-header {
+            background: linear-gradient(135deg, #0c2f6b 0%, #1C539F 60%, #2060c0 100%);
+            padding: 60px 24px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tl-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: #f0f4fc;
+            clip-path: ellipse(55% 100% at 50% 100%);
+        }
+
+        .tl-header h1 {
+            font-size: 44px;
+            font-weight: 800;
+            color: #fff;
+            margin: 0 0 10px;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tl-header p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.72);
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ---- LAYOUT ---- */
+        .tl-body {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 48px 20px 80px;
+        }
+
+        /* ---- FORM CARD ---- */
+        .tl-form-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 36px 36px 32px;
+            box-shadow: 0 4px 24px rgba(28, 83, 159, 0.12);
+            border: 1px solid rgba(28, 83, 159, 0.08);
+            margin-bottom: 48px;
+        }
+
+        .tl-form-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111827;
+            margin: 0 0 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tl-form-title span {
+            font-size: 22px;
+        }
+
+        .tl-form-sub {
+            font-size: 13px;
+            color: #6b7280;
+            margin: 0 0 24px;
+        }
+
+        .tl-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .tl-input {
+            width: 100%;
+            border: 1.5px solid #dce7f8;
+            border-radius: 10px;
+            padding: 11px 14px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            color: #111827;
+            background: #f8faff;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+            margin-bottom: 18px;
+        }
+
+        .tl-input:focus {
+            border-color: #1C539F;
+            box-shadow: 0 0 0 3px rgba(28, 83, 159, 0.12);
+            background: #fff;
+        }
+
+        textarea.tl-input {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .tl-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #0c2f6b, #1C539F);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 13px;
+            font-size: 15px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+            letter-spacing: 0.2px;
+        }
+
+        .tl-submit:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* ---- SUCCESS / ERROR TOAST ---- */
+        .tl-toast {
+            display: none;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+
+        .tl-toast.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        .tl-toast.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+
+        /* ---- SECTION DIVIDER ---- */
+        .tl-divider {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        .tl-divider-line {
+            flex: 1;
+            height: 1px;
+            background: #dce7f8;
+        }
+
+        .tl-divider-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1C539F;
+            white-space: nowrap;
+        }
+
+        /* ---- POSTS LIST ---- */
+        .tl-empty {
+            text-align: center;
+            padding: 48px 24px;
+            color: #9ca3af;
+            font-size: 15px;
+        }
+
+        .tl-empty-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        /* ---- POST CARD ---- */
+        .tl-post {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px 26px;
+            box-shadow: 0 2px 12px rgba(28, 83, 159, 0.08);
+            border: 1px solid rgba(28, 83, 159, 0.07);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .tl-post:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(28, 83, 159, 0.13);
+        }
+
+        .tl-avatar {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e8f0fb, #cdddf7);
+            overflow: hidden;
+            border: 2px solid rgba(28, 83, 159, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #1C539F;
+            font-weight: 700;
+        }
+
+        .tl-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .tl-post-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .tl-post-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .tl-post-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .tl-post-email {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        .tl-post-time {
+            font-size: 12px;
+            color: #9ca3af;
+            white-space: nowrap;
+        }
+
+        .tl-post-content {
+            font-size: 14.5px;
+            color: #374151;
+            line-height: 1.72;
+            margin: 0;
+            word-break: break-word;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 600px) {
+            .tl-header h1 { font-size: 30px; }
+            .tl-form-card { padding: 24px 20px; }
+            .tl-post { flex-direction: column; gap: 12px; }
+            .tl-avatar { width: 40px; height: 40px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    {% include "nav.html" %}
+
+    <!-- PAGE HEADER -->
+    <div class="tl-header">
+        <h1>&#128203; Timeline</h1>
+        <p>Share updates, thoughts, and moments</p>
+    </div>
+
+    <div class="tl-body">
+
+        <!-- POST FORM -->
+        <div class="tl-form-card">
+            <h2 class="tl-form-title"><span>&#9998;</span> New Post</h2>
+            <p class="tl-form-sub">Fill in the fields below to add a post to the timeline.</p>
+
+            <div id="tl-toast" class="tl-toast"></div>
+
+            <form id="timeline-form" novalidate>
+                <label class="tl-label" for="input-name">Name</label>
+                <input class="tl-input" type="text" id="input-name" name="name" placeholder="Your name" required>
+
+                <label class="tl-label" for="input-email">Email</label>
+                <input class="tl-input" type="email" id="input-email" name="email" placeholder="your@email.com" required>
+
+                <label class="tl-label" for="input-content">Post</label>
+                <textarea class="tl-input" id="input-content" name="content" placeholder="What's on your mind?" required></textarea>
+
+                <button type="submit" class="tl-submit" id="submit-btn">Post to Timeline</button>
+            </form>
+        </div>
+
+        <!-- POSTS SECTION -->
+        <div class="tl-divider">
+            <div class="tl-divider-line"></div>
+            <div class="tl-divider-label">&#128197; Recent Posts</div>
+            <div class="tl-divider-line"></div>
+        </div>
+
+        <div id="posts-container">
+            <div class="tl-empty">
+                <div class="tl-empty-icon">&#128203;</div>
+                No posts yet — be the first!
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="pg-foot" style="text-align:center;">
+        <p style="margin:0; color:rgba(255,255,255,0.55); font-size:13px;">&copy; 2026 Baker Hassani</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        // the gravatar website
+        function gravatarUrl(email) {
+            // email goes in, something comes out
+            var clean = email.trim().toLowerCase();
+            // md5 the thing
+            var hash = md5(clean);
+            // make a url i guess
+            return 'https://www.gravatar.com/avatar/' + hash + '?d=identicon&s=96';
+        }
+
+        // makes a box
+        function buildCard(post) {
+            // box
+            var div = document.createElement('div');
+            div.className = 'tl-post';
+            // put stuff in the box
+            div.innerHTML =
+                '<div class="tl-avatar"><img src="' + gravatarUrl(post.email) + '" alt="avatar"></div>' +
+                '<div class="tl-post-body">' +
+                    '<div class="tl-post-header">' +
+                        '<div>' +
+                            // the name part
+                            '<span class="tl-post-name">' + post.name + '</span>' +
+                            '<span class="tl-post-email"> &middot; ' + post.email + '</span>' +
+                        '</div>' +
+                    '</div>' +
+                    // words
+                    '<p class="tl-post-content">' + post.content + '</p>' +
+                '</div>';
+            // give back the box
+            return div;
+        }
+
+        // asks the server for stuff
+        function loadPosts() {
+            // go get it
+            fetch('/api/timeline_post')
+                .then(function(r) {
+                    // turn it into json or whatever
+                    return r.json();
+                })
+                .then(function(data) {
+                    // the place where cards go
+                    var container = document.getElementById('posts-container');
+                    container.innerHTML = '';
+                    // the list of posts
+                    var posts = data.timeline_posts;
+                    // nothing there
+                    if (!posts || posts.length === 0) {
+                        container.innerHTML = '<div class="tl-empty"><div class="tl-empty-icon">&#128203;</div>No posts yet!</div>';
+                        // stop doing things
+                        return;
+                    }
+                    // newest first (flip it)
+                    posts.reverse();
+                    // loop through and make boxes
+                    posts.forEach(function(post) {
+                        container.appendChild(buildCard(post));
+                    });
+                });
+        }
+
+        // the form thing
+        document.getElementById('timeline-form').addEventListener('submit', function(e) {
+            // stop the browser from doing its normal thing
+            e.preventDefault();
+
+            // collect the form fields into a bundle
+            var formData = new FormData(this);
+
+            // send to server
+            fetch('/api/timeline_post', {
+                method: 'POST',
+                body: formData
+            })
+            .then(function(r) {
+                // json again
+                return r.json();
+            })
+            .then(function(newPost) {
+                // clear the form inputs
+                document.getElementById('timeline-form').reset();
+
+                // find the container
+                var container = document.getElementById('posts-container');
+
+                // if the empty message is there, delete it
+                var empty = container.querySelector('.tl-empty');
+                if (empty) container.innerHTML = '';
+
+                // put the new post at the top not the bottom
+                container.insertBefore(buildCard(newPost), container.firstChild);
+            })
+            .catch(function(err) {
+                // something went wrong, check console
+                console.error('failed:', err);
+            });
+        });
+
+        // tiny md5 function (don't touch this, just trust it)
+        function md5(s){function L(k,d){return(k<<d)|(k>>>(32-d))}function K(G,k){var I,d,F,H,x;F=(G&2147483648);H=(k&2147483648);I=(G&1073741824);d=(k&1073741824);x=(G&1073741823)+(k&1073741823);if(I&d){return(x^2147483648^F^H)}if(I|d){if(x&1073741824){return(x^3221225472^F^H)}else{return(x^1073741824^F^H)}}else{return(x^F^H)}}function r(d,F,k,I,G,H,x){d=K(d,K(K((F&k)|(~F&I),G),x));return K(L(d,H),F)}function q(d,F,k,I,G,H,x){d=K(d,K(K((F&I)|(k&~I),G),x));return K(L(d,H),F)}function p(d,F,k,I,G,H,x){d=K(d,K(K(F^k^I,G),x));return K(L(d,H),F)}function n(d,F,k,I,G,H,x){d=K(d,K(K(k^(F|~I),G),x));return K(L(d,H),F)}s=unescape(encodeURIComponent(s));var a=s.length,b=Array();var c,e,g,f,h,j,k,l,m;b[a>>2]|=0x80<<((a%4)*8);b[((a+64>>9)<<4)+14]=a*8;var i=1732584193,o=4023233417,t=2562383102,v=271733878;for(c=0;c<b.length;c+=16){e=i;g=o;f=t;h=v;i=r(i,o,t,v,b[c+0],7,3614090360);v=r(v,i,o,t,b[c+1],12,3905402710);t=r(t,v,i,o,b[c+2],17,606105819);o=r(o,t,v,i,b[c+3],22,3250441966);i=r(i,o,t,v,b[c+4],7,4118548399);v=r(v,i,o,t,b[c+5],12,1200080426);t=r(t,v,i,o,b[c+6],17,2821735955);o=r(o,t,v,i,b[c+7],22,4249261313);i=r(i,o,t,v,b[c+8],7,1770035416);v=r(v,i,o,t,b[c+9],12,2336552879);t=r(t,v,i,o,b[c+10],17,4294925233);o=r(o,t,v,i,b[c+11],22,2304563134);i=r(i,o,t,v,b[c+12],7,1804603682);v=r(v,i,o,t,b[c+13],12,4254626195);t=r(t,v,i,o,b[c+14],17,2792965006);o=r(o,t,v,i,b[c+15],22,1236535329);i=q(i,o,t,v,b[c+1],5,4129170786);v=q(v,i,o,t,b[c+6],9,3225465664);t=q(t,v,i,o,b[c+11],14,643717713);o=q(o,t,v,i,b[c+0],20,3921069994);i=q(i,o,t,v,b[c+5],5,3593408605);v=q(v,i,o,t,b[c+10],9,38016083);t=q(t,v,i,o,b[c+15],14,3634488961);o=q(o,t,v,i,b[c+4],20,3889429448);i=q(i,o,t,v,b[c+9],5,568446438);v=q(v,i,o,t,b[c+14],9,3275163606);t=q(t,v,i,o,b[c+3],14,4107603335);o=q(o,t,v,i,b[c+8],20,1163531501);i=q(i,o,t,v,b[c+13],5,2850285829);v=q(v,i,o,t,b[c+2],9,4243563512);t=q(t,v,i,o,b[c+7],14,1735328473);o=q(o,t,v,i,b[c+12],20,2368359562);i=p(i,o,t,v,b[c+5],4,4294588738);v=p(v,i,o,t,b[c+8],11,2272392833);t=p(t,v,i,o,b[c+11],16,1839030562);o=p(o,t,v,i,b[c+14],23,4259657740);i=p(i,o,t,v,b[c+1],4,2763975236);v=p(v,i,o,t,b[c+4],11,1272893353);t=p(t,v,i,o,b[c+7],16,4139469664);o=p(o,t,v,i,b[c+10],23,3200236656);i=p(i,o,t,v,b[c+13],4,681279174);v=p(v,i,o,t,b[c+0],11,3936430074);t=p(t,v,i,o,b[c+3],16,3572445317);o=p(o,t,v,i,b[c+6],23,76029189);i=p(i,o,t,v,b[c+9],4,3654602809);v=p(v,i,o,t,b[c+12],11,3873151461);t=p(t,v,i,o,b[c+15],16,530742520);o=p(o,t,v,i,b[c+2],23,3299628645);i=n(i,o,t,v,b[c+0],6,4096336452);v=n(v,i,o,t,b[c+7],10,1126891415);t=n(t,v,i,o,b[c+14],15,2878612391);o=n(o,t,v,i,b[c+5],21,4237533241);i=n(i,o,t,v,b[c+12],6,1700485571);v=n(v,i,o,t,b[c+3],10,2399980690);t=n(t,v,i,o,b[c+10],15,4293915773);o=n(o,t,v,i,b[c+1],21,2240044497);i=n(i,o,t,v,b[c+8],6,1873313359);v=n(v,i,o,t,b[c+15],10,4264355552);t=n(t,v,i,o,b[c+6],15,2734768916);o=n(o,t,v,i,b[c+13],21,1309151649);i=n(i,o,t,v,b[c+4],6,4149444226);v=n(v,i,o,t,b[c+11],10,3174756917);t=n(t,v,i,o,b[c+2],15,718787259);o=n(o,t,v,i,b[c+9],21,3951481745);i=K(i,e);o=K(o,g);t=K(t,f);v=K(v,h)}var w=Array(i,o,t,v);var x='';for(var y=0;y<4;y++){for(var z=0;z<4;z++){x+=('0'+((w[y]>>>(z*8+4))&0x0F).toString(16))+('0'+((w[y]>>>(z*8))&0x0F).toString(16))}}return x;}
+
+        // run it when the page loads
+        loadPosts();
+
+    </script>
+
+</body>
+</html>
