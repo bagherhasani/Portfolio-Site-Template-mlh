@@ -1,6 +1,6 @@
-from crypt import methods
-import datetime
-from email.policy import default
+#ruff: noqa: F403 F405
+# from crypt import methods
+# from email.policy import default
 import os
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
@@ -17,13 +17,16 @@ app.register_blueprint(education_bp)
 
 
 #database connection here 
-mydb=MySQLDatabase(os.getenv("MYSQL_DATABASE"),
-user=os.getenv("MYSQL_USER"),
-password=os.getenv("MYSQL_PASSWORD"),
-host=os.getenv("MYSQL_HOST"),
-port=3306
-
-)
+if os.getenv("TESTING") == "true":
+    print("running in test mode")
+    mydb = SqliteDatabase('file:memory?mode=memory&cache=shared', uri = True)
+else:
+    mydb=MySQLDatabase(os.getenv("MYSQL_DATABASE"),
+            user=os.getenv("MYSQL_USER"),
+            password=os.getenv("MYSQL_PASSWORD"),
+            host=os.getenv("MYSQL_HOST"),
+            port=3306
+        )
 print(mydb)
 
 #database table model
