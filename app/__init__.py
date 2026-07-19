@@ -173,9 +173,15 @@ def hobbies():
 
 @app.route('/api/timeline_post',methods=['POST'])
 def post_time_list_post():
-    name=request.form['name']
-    email=request.form['email']
-    content=request.form['content']
+    name=request.form.get('name')
+    if not name: 
+        return "Invalid Name", 400
+    email=request.form.get('email')
+    if not email or '@' not in email: 
+        return "Invalid Email", 400
+    content=request.form.get('content')
+    if not content: 
+        return "Invalid Content", 400
     timeline_post=TimelinePost.create(name=name, email=email, content=content)
 
     return model_to_dict(timeline_post)
