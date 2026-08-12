@@ -1,0 +1,11 @@
+user_id,endpoint,status
+101,/login,200
+102,/home,200
+101,/home,500
+103,/search,200
+102,/home,200
+101,/login,200
+103,/search,500
+102,/profile,404
+101,/home,500
+103,/search,200

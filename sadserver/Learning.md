@@ -13,3 +13,5 @@ diff file1 file2
 with open("/home/admin/scores.txt","r") as file:
     for line in file:
         print(line.split()[0])
+
+#

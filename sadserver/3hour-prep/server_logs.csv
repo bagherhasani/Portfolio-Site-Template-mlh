@@ -1,0 +1,12 @@
+timestamp,endpoint,status,response_time
+10:00,/login,200,120
+10:01,/home,200,80
+10:02,/login,500,300
+10:03,/search,200,150
+10:04,/home,404,90
+10:05,/login,200,110
+10:06,/search,500,400
+10:07,/home,200,70
+10:08,/login,500,350
+10:09,/search,200,140
+10:10,/search,500,500

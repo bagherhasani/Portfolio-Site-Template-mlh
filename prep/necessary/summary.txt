@@ -1,0 +1,6 @@
+IP reports
+10.0.0.1 count=1 average=120.0 failure=0
+10.0.0.2 count=4 average=80.0 failure=4
+10.0.0.3 count=4 average=95.0 failure=0
+
+malformed: 2

@@ -1,0 +1,38 @@
+[
+    {
+        "name": "web-01",
+        "status": "running",
+        "cpu": 42,
+        "memory": 61
+    },
+    {
+        "name": "web-02",
+        "status": "running",
+        "cpu": 91,
+        "memory": 70
+    },
+    {
+        "name": "db-01",
+        "status": "running",
+        "cpu": 85,
+        "memory": 93
+    },
+    {
+        "name": "worker-01",
+        "status": "stopped",
+        "cpu": 0,
+        "memory": 0
+    },
+    {
+        "name": "web-03",
+        "status": "running",
+        "cpu": 76,
+        "memory": 88
+    },
+    {
+        "name": "worker-02",
+        "status": "running",
+        "cpu": 95,
+        "memory": 82
+    }
+]

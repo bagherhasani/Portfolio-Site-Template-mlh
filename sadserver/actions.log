@@ -1,0 +1,12 @@
+alice login
+bob upload
+alice download
+charlie login
+bob login
+alice logout
+charlie upload
+bob download
+alice upload
+charlie logout
+alice login
+bob logout

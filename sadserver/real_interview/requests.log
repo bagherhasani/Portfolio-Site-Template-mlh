@@ -1,0 +1,12 @@
+10:00:00 | OPEN | R1 | /search
+10:00:01 | OPEN | R2 | /order
+10:00:02 | CLOSE | R1 | OK
+10:00:03 | OPEN | R3 | /pay
+10:00:04 | CLOSE | R3 | FAIL
+10:00:05 | OPEN | R4 | /search
+10:00:06 | CLOSE | R4 | OK
+10:00:07 | CLOSE | R2 | OK
+10:00:08 | OPEN | R5 | /order
+10:00:09 | OPEN | R6 | /pay
+10:00:11 | CL
+10:00:12 | CLOSE | R6 | OK
