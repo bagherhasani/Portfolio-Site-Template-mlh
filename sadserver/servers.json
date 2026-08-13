@@ -1,6 +1,0 @@
-[
-  {"host": "web-01", "cpu": 35, "status": "healthy"},
-  {"host": "web-02", "cpu": 92, "status": "healthy"},
-  {"host": "db-01", "cpu": 88, "status": "degraded"},
-  {"host": "cache-01", "cpu": 41, "status": "healthy"}
-]

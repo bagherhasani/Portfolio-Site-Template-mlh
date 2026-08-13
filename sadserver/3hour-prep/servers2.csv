@@ -1,7 +1,0 @@
-server_id,name,cpu_count
-1,web-01,4
-2,web-02,8
-3,db-01,16
-4,worker-01,4
-5,worker-02,8
-6,cache-01,2

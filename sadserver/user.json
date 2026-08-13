@@ -1,6 +1,0 @@
-[
-  {"name": "Alice", "team": "infra", "score": 91},
-  {"name": "Bob", "team": "backend", "score": 84},
-  {"name": "Charlie", "team": "infra", "score": 88},
-  {"name": "Diana", "team": "backend", "score": 95}
-]
