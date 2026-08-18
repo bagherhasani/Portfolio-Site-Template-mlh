@@ -195,3 +195,22 @@ def get_time_line_post():
             for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
         ]
     }
+
+@app.route('/health')
+def health():
+    try:
+        mydb.execute_sql("SELECT 1")
+
+        return {
+            "status": "healthy",
+            "app": "ok",
+            "database": "ok"
+        }, 200
+
+    except Exception as e:
+        return {
+            "status": "unhealthy",
+            "app": "ok",
+            "database": "error",
+            "message": str(e)
+        }, 500
