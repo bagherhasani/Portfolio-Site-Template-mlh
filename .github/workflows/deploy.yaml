@@ -1,25 +1,42 @@
-- name: Configure SSH
-  run: |
-    mkdir -p ~/.ssh
-    printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy-key
-    chmod 600 ~/.ssh/deploy-key
+name: Deploy
 
-    eval "$(ssh-agent -s)"
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
-    SSH_ASKPASS_REQUIRE=force \
-    SSH_ASKPASS=/bin/echo \
-    DISPLAY=:0 \
-    ssh-add ~/.ssh/deploy-key <<< "$SSH_KEY_PASSPHRASE"
+jobs:
+  deploy:
+    name: Deploy to VPS
+    runs-on: ubuntu-latest
 
-    cat >> ~/.ssh/config <<END
-    Host my-vps
-      HostName $SSH_IP
-      User $SSH_USER
-      IdentityFile ~/.ssh/deploy-key
-      StrictHostKeyChecking no
-    END
-  env:
-    SSH_USER: ${{ secrets.SSH_USER }}
-    SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-    SSH_KEY_PASSPHRASE: ${{ secrets.SSH_KEY_PASSPHRASE }}
-    SSH_IP: ${{ secrets.SSH_IP }}
+    steps:
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy-key
+          chmod 600 ~/.ssh/deploy-key
+
+          eval "$(ssh-agent -s)"
+
+          SSH_ASKPASS_REQUIRE=force \
+          SSH_ASKPASS=/bin/echo \
+          DISPLAY=:0 \
+          ssh-add ~/.ssh/deploy-key <<< "$SSH_KEY_PASSPHRASE"
+
+          cat >> ~/.ssh/config <<END
+          Host my-vps
+            HostName $SSH_IP
+            User $SSH_USER
+            IdentityFile ~/.ssh/deploy-key
+            StrictHostKeyChecking no
+          END
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KEY_PASSPHRASE: ${{ secrets.SSH_KEY_PASSPHRASE }}
+          SSH_IP: ${{ secrets.SSH_IP }}
+
+      - name: Print project root directory
+        run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && pwd'
