@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+    test:
     name: Run Tests
     runs-on: ubuntu-latest
 
@@ -26,8 +26,11 @@ jobs:
           pip install pytest
 
       - name: Run tests
+        env:
+          TESTING: "true"
+          PYTHONPATH: .
         run: |
-          pytest
+          python -m pytest
 
 
   deploy:
