@@ -59,7 +59,7 @@ jobs:
         run: ssh my-vps '~/redeploy-site.sh'
 
       - name: Show container status
-        run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && docker-compose ps'
+        run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && docker compose ps'
 
       - name: Send success notification
         if: success()
