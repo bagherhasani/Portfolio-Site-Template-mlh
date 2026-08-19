@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-    test:
+  test:
     name: Run Tests
     runs-on: ubuntu-latest
 
@@ -31,7 +31,6 @@ jobs:
           PYTHONPATH: .
         run: |
           python -m pytest
-
 
   deploy:
     name: Deploy to VPS
@@ -68,22 +67,15 @@ jobs:
           curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" \
             -d "content=🚀 Deployment Successful"
 
-
-  # CHANGED: added a separate job for failures
   notify-failure:
     name: Notify Failure
     runs-on: ubuntu-latest
-
-    # CHANGED: wait for both test and deploy jobs
     needs:
       - test
       - deploy
-
-    # CHANGED: run this job when tests OR deployment fail
-    if: failure()
+    if: ${{ always() && (needs.test.result == 'failure' || needs.deploy.result == 'failure') }}
 
     steps:
-      # CHANGED: Discord failure notification moved here
       - name: Send failure notification
         run: |
           curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" \
