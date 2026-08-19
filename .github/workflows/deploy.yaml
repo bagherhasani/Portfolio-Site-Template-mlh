@@ -7,9 +7,32 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
-    name: "Deploy to VPS"
+  test:
+    name: Run Tests
     runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          pytest
+
+
+  deploy:
+    name: Deploy to VPS
+    runs-on: ubuntu-latest
+    needs: test
 
     steps:
       - name: Configure SSH
@@ -29,5 +52,35 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_IP: ${{ secrets.SSH_IP }}
 
-      - name: Print project root directory
+      - name: Deploy site
         run: ssh my-vps '~/redeploy-site.sh'
+
+      - name: Show container status
+        run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && docker-compose ps'
+
+      - name: Send success notification
+        if: success()
+        run: |
+          curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" \
+            -d "content=🚀 Deployment Successful"
+
+
+  # CHANGED: added a separate job for failures
+  notify-failure:
+    name: Notify Failure
+    runs-on: ubuntu-latest
+
+    # CHANGED: wait for both test and deploy jobs
+    needs:
+      - test
+      - deploy
+
+    # CHANGED: run this job when tests OR deployment fail
+    if: failure()
+
+    steps:
+      # CHANGED: Discord failure notification moved here
+      - name: Send failure notification
+        run: |
+          curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" \
+            -d "content=🚨 Deployment Failed"
